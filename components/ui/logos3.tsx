@@ -1,10 +1,8 @@
 "use client"
 
-import AutoScroll from "embla-carousel-auto-scroll"
 import { Atom, Boxes, Component, Database, Figma, Layers3, Triangle, Wind } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 
 interface Logo {
   id: string
@@ -82,18 +80,23 @@ const Logos3 = ({
       </div>
       <div className="relative pt-8 md:pt-10">
         <div className="relative mx-auto flex max-w-5xl items-center justify-center px-6">
-          <Carousel opts={{ loop: true }} plugins={[AutoScroll({ playOnInit: true, speed: 0.8 })]} className="w-full">
-            <CarouselContent className="ml-0 gap-4 sm:gap-5">
-              {logos.map((logo) => (
-                <CarouselItem key={logo.id} className="flex basis-auto justify-center pl-0">
-                  <div className="flex h-16 w-[11.75rem] shrink-0 items-center justify-center rounded-full border border-black/10 bg-white/65 px-5 shadow-sm backdrop-blur-sm transition duration-200 hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/[0.10] dark:hover:border-white/20 dark:hover:bg-white/[0.14] sm:w-[12.75rem] sm:px-6 md:w-[13.5rem]">
-                    <logo.icon className="mr-2 h-5 w-5 shrink-0 text-black/45 dark:text-white/45" strokeWidth={1.75} />
-                    <span className="min-w-0 truncate whitespace-nowrap text-lg font-light tracking-tight text-black/60 dark:text-white/60">{logo.description}</span>
-                  </div>
-                </CarouselItem>
+          <div className="w-full overflow-hidden">
+            <div className="logo-marquee-track flex w-max">
+              {[0, 1].map((setIndex) => (
+                <div key={setIndex} className="flex gap-4 pr-4 sm:gap-5 sm:pr-5" aria-hidden={setIndex === 1}>
+                  {logos.map((logo) => (
+                    <div
+                      key={`${logo.id}-${setIndex}`}
+                      className="flex h-16 w-[11.75rem] shrink-0 items-center justify-center rounded-full border border-black/10 bg-white/65 px-5 shadow-sm backdrop-blur-sm transition duration-200 hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/[0.10] dark:hover:border-white/20 dark:hover:bg-white/[0.14] sm:w-[12.75rem] sm:px-6 md:w-[13.5rem]"
+                    >
+                      <logo.icon className="mr-2 h-5 w-5 shrink-0 text-black/45 dark:text-white/45" strokeWidth={1.75} />
+                      <span className="min-w-0 truncate whitespace-nowrap text-lg font-light tracking-tight text-black/60 dark:text-white/60">{logo.description}</span>
+                    </div>
+                  ))}
+                </div>
               ))}
-            </CarouselContent>
-          </Carousel>
+            </div>
+          </div>
           <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F0F4FF] to-transparent dark:from-[#071426]" />
           <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F0F4FF] to-transparent dark:from-[#071426]" />
         </div>

@@ -70,6 +70,11 @@ body {
   will-change: transform;
 }
 
+.logo-marquee-track {
+  animation: logo-marquee 34s linear infinite;
+  will-change: transform;
+}
+
 @keyframes rotate-circle-text {
   to {
     transform: scale(1.08) rotate(360deg);
@@ -90,6 +95,12 @@ body {
   }
 }
 
+@keyframes logo-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-background-image {
     animation: none;
@@ -97,6 +108,10 @@ body {
   }
 
   .rotating-circle-text {
+    animation: none;
+  }
+
+  .logo-marquee-track {
     animation: none;
   }
 }
