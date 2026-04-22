@@ -16,11 +16,14 @@ const TabsList = React.forwardRef<
 
     requestAnimationFrame(() => {
       const activeTrigger = list.querySelector<HTMLElement>('[role="tab"][data-state="active"]')
+      if (!activeTrigger) {
+        return
+      }
 
-      activeTrigger?.scrollIntoView({
+      const centeredLeft = activeTrigger.offsetLeft - list.clientWidth / 2 + activeTrigger.clientWidth / 2
+      list.scrollTo({
+        left: Math.max(0, centeredLeft),
         behavior: "smooth",
-        block: "nearest",
-        inline: "center",
       })
     })
   }, [])
