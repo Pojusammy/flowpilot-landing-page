@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #F0F4FF;
+  color: #fff;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+.instrument {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.hero-background-image {
+  transform: scale(1.12);
+  transform-origin: 45% 50%;
+  animation: hero-background-drift 12s cubic-bezier(0.45, 0, 0.2, 1) infinite alternate;
+  will-change: transform;
+}
+
+.rotating-circle-text {
+  transform: scale(1.08);
+  animation: rotate-circle-text 20s linear infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes rotate-circle-text {
+  to {
+    transform: scale(1.08) rotate(360deg);
+  }
+}
+
+@keyframes hero-background-drift {
+  0% {
+    transform: scale(1.12) translate3d(-3%, -2%, 0);
+  }
+
+  45% {
+    transform: scale(1.2) translate3d(3%, 1.5%, 0);
+  }
+
+  100% {
+    transform: scale(1.16) translate3d(-1%, 3%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-image {
+    animation: none;
+    transform: scale(1.04);
+  }
+
+  .rotating-circle-text {
+    animation: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
