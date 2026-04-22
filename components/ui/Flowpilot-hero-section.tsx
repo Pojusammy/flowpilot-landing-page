@@ -176,7 +176,9 @@ export function Header() {
     <header className="relative z-40 flex items-center justify-between p-6">
       {/* Logo */}
       <div className="flex items-center">
-        <img src="/flowpilot-logo.svg" alt="Flowpilot" className="h-8 w-auto brightness-0 invert" />
+        <a href="/" aria-label="Flowpilot home" className="inline-flex items-center">
+          <img src="/flowpilot-logo.svg" alt="Flowpilot" className="h-8 w-auto brightness-0 invert" />
+        </a>
       </div>
 
       {/* Navigation */}
