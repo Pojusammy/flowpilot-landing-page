@@ -84,7 +84,7 @@ export function FeatureShowcase({
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full bg-[#172033] text-xs font-light text-white hover:bg-[#22365f]">
-                <a href="#start">
+                <a href="#pricing">
                   Start Free
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>

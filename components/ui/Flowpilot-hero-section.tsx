@@ -33,7 +33,7 @@ export function ShaderBackground({ children }: ShaderBackgroundProps) {
   }, [])
 
   return (
-    <div ref={containerRef} data-active={isActive} className="min-h-screen w-full relative overflow-hidden">
+    <div id="top" ref={containerRef} data-active={isActive} className="min-h-screen w-full relative overflow-hidden">
       {/* SVG Filters */}
       <svg className="absolute inset-0 w-0 h-0">
         <defs>
@@ -176,7 +176,7 @@ export function Header() {
     <header className="relative z-40 flex items-center justify-between p-6">
       {/* Logo */}
       <div className="flex items-center">
-        <a href="/" aria-label="Flowpilot home" className="inline-flex items-center">
+        <a href="#top" aria-label="Flowpilot home" className="inline-flex items-center">
           <img src="/flowpilot-logo.svg" alt="Flowpilot" className="h-8 w-auto brightness-0 invert" />
         </a>
       </div>

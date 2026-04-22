@@ -1,58 +1,30 @@
 "use client"
 
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react"
+import type { ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 import { Header, HeroContent, PulsingCircle, ShaderBackground } from "@/components/ui/Flowpilot-hero-section"
+import { Logos3 } from "@/components/ui/logos3"
+import { Features } from "@/components/ui/features-4"
+import { HowItWorks } from "@/components/ui/how-it-works"
+import { UseCases } from "@/components/ui/use-cases"
+import { Pricing2 } from "@/components/ui/pricing-cards"
+import { TestimonialsSplit } from "@/components/ui/split-testimonial"
+import { Faq5 } from "@/components/ui/faq-5"
+import { FinalCta } from "@/components/ui/final-cta"
 
-const Logos3 = lazy(() => import("@/components/ui/logos3").then((module) => ({ default: module.Logos3 })))
-const Features = lazy(() => import("@/components/ui/features-4").then((module) => ({ default: module.Features })))
-const HowItWorks = lazy(() => import("@/components/ui/how-it-works").then((module) => ({ default: module.HowItWorks })))
-const UseCases = lazy(() => import("@/components/ui/use-cases").then((module) => ({ default: module.UseCases })))
-const Pricing2 = lazy(() => import("@/components/ui/pricing-cards").then((module) => ({ default: module.Pricing2 })))
-const TestimonialsSplit = lazy(() =>
-  import("@/components/ui/split-testimonial").then((module) => ({ default: module.TestimonialsSplit })),
-)
-const Faq5 = lazy(() => import("@/components/ui/faq-5").then((module) => ({ default: module.Faq5 })))
-const FinalCta = lazy(() => import("@/components/ui/final-cta").then((module) => ({ default: module.FinalCta })))
-
-function RenderWhenNear({ children, id, minHeight = 0 }: { children: ReactNode; id?: string; minHeight?: number }) {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const [shouldRender, setShouldRender] = useState(false)
+function RevealSection({ children, id }: { children: ReactNode; id?: string }) {
   const prefersReducedMotion = useReducedMotion()
 
-  useEffect(() => {
-    const element = ref.current
-    if (!element || shouldRender) {
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldRender(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: "900px 0px" },
-    )
-
-    observer.observe(element)
-
-    return () => observer.disconnect()
-  }, [shouldRender])
-
   return (
-    <div ref={ref} id={id} className={id ? "scroll-mt-8" : undefined} style={shouldRender ? undefined : { minHeight }}>
-      {shouldRender ? (
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 0.985, clipPath: "inset(3% 0% 0% 0%)" }}
-          whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)" }}
-          viewport={{ once: true, amount: 0.22 }}
-          transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {children}
-        </motion.div>
-      ) : null}
+    <div id={id} className={id ? "scroll-mt-8" : undefined}>
+      <motion.div
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 18, scale: 0.985, clipPath: "inset(3% 0% 0% 0%)" }}
+        whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0% 0% 0%)" }}
+        viewport={{ once: true, amount: 0.18 }}
+        transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.div>
     </div>
   )
 }
@@ -65,32 +37,30 @@ export default function App() {
         <HeroContent />
         <PulsingCircle />
       </ShaderBackground>
-      <Suspense fallback={null}>
-        <RenderWhenNear minHeight={300}>
-          <Logos3 />
-        </RenderWhenNear>
-        <RenderWhenNear id="features" minHeight={560}>
-          <Features />
-        </RenderWhenNear>
-        <RenderWhenNear id="how-it-works" minHeight={620}>
-          <HowItWorks />
-        </RenderWhenNear>
-        <RenderWhenNear minHeight={620}>
-          <UseCases />
-        </RenderWhenNear>
-        <RenderWhenNear id="pricing" minHeight={640}>
-          <Pricing2 />
-        </RenderWhenNear>
-        <RenderWhenNear minHeight={520}>
-          <TestimonialsSplit />
-        </RenderWhenNear>
-        <RenderWhenNear minHeight={460}>
-          <Faq5 />
-        </RenderWhenNear>
-        <RenderWhenNear minHeight={620}>
-          <FinalCta />
-        </RenderWhenNear>
-      </Suspense>
+      <RevealSection>
+        <Logos3 />
+      </RevealSection>
+      <RevealSection id="features">
+        <Features />
+      </RevealSection>
+      <RevealSection id="how-it-works">
+        <HowItWorks />
+      </RevealSection>
+      <RevealSection>
+        <UseCases />
+      </RevealSection>
+      <RevealSection id="pricing">
+        <Pricing2 />
+      </RevealSection>
+      <RevealSection>
+        <TestimonialsSplit />
+      </RevealSection>
+      <RevealSection>
+        <Faq5 />
+      </RevealSection>
+      <RevealSection id="contact">
+        <FinalCta />
+      </RevealSection>
     </>
   )
 }

@@ -33,7 +33,7 @@ export function Component() {
 
         <div className="grid gap-10 md:grid-cols-[1.2fr_2fr]">
           <div>
-            <a href="#" className="flex items-center gap-3 text-2xl font-light tracking-tight text-[#172033]">
+            <a href="#top" className="flex items-center gap-3 text-2xl font-light tracking-tight text-[#172033]">
               <img src="/flowpilot-logo.svg" alt="" className="h-8 w-auto" aria-hidden="true" />
               <span>Flowpilot</span>
             </a>
@@ -50,7 +50,15 @@ export function Component() {
                   {column.links.map((link) => (
                     <a
                       key={link}
-                      href={link === "Features" ? "#features" : link === "Pricing" ? "#pricing" : "#"}
+                      href={
+                        link === "Features"
+                          ? "#features"
+                          : link === "Pricing"
+                            ? "#pricing"
+                            : link === "Contact"
+                              ? "#contact"
+                              : "#top"
+                      }
                       className="text-sm font-light text-black/55 transition duration-200 hover:text-[#172033]"
                     >
                       {link}
@@ -71,7 +79,7 @@ export function Component() {
             <a href="#features" className="transition hover:text-[#172033]">
               Features
             </a>
-            <a href="#" className="transition hover:text-[#172033]">
+            <a href="#contact" className="transition hover:text-[#172033]">
               Contact
             </a>
           </div>

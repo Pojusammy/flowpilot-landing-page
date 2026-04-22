@@ -47,7 +47,7 @@ const plans: PricingPlan[] = [
     ],
     button: {
       text: "Get Started Free",
-      url: "#start",
+      url: "#pricing",
     },
   },
   {
@@ -67,7 +67,7 @@ const plans: PricingPlan[] = [
     ],
     button: {
       text: "Start Pro Trial",
-      url: "#start",
+      url: "#pricing",
     },
   },
   {
