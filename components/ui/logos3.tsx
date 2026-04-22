@@ -83,12 +83,12 @@ const Logos3 = ({
       <div className="relative pt-8 md:pt-10">
         <div className="relative mx-auto flex max-w-5xl items-center justify-center px-6">
           <Carousel opts={{ loop: true }} plugins={[AutoScroll({ playOnInit: true, speed: 0.8 })]} className="w-full">
-            <CarouselContent className="ml-0">
+            <CarouselContent className="ml-0 gap-4 sm:gap-5">
               {logos.map((logo) => (
-                <CarouselItem key={logo.id} className="flex basis-1/2 justify-center pl-0 sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
-                  <div className="mx-6 flex h-16 shrink-0 items-center justify-center rounded-full border border-black/10 bg-white/65 px-8 shadow-sm backdrop-blur-sm transition duration-200 hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/[0.10] dark:hover:border-white/20 dark:hover:bg-white/[0.14]">
-                    <logo.icon className="mr-2 h-5 w-5 text-black/45 dark:text-white/45" strokeWidth={1.75} />
-                    <span className="whitespace-nowrap text-lg font-light tracking-tight text-black/60 dark:text-white/60">{logo.description}</span>
+                <CarouselItem key={logo.id} className="flex basis-auto justify-center pl-0">
+                  <div className="flex h-16 w-[11.75rem] shrink-0 items-center justify-center rounded-full border border-black/10 bg-white/65 px-5 shadow-sm backdrop-blur-sm transition duration-200 hover:border-black/20 hover:bg-white dark:border-white/10 dark:bg-white/[0.10] dark:hover:border-white/20 dark:hover:bg-white/[0.14] sm:w-[12.75rem] sm:px-6 md:w-[13.5rem]">
+                    <logo.icon className="mr-2 h-5 w-5 shrink-0 text-black/45 dark:text-white/45" strokeWidth={1.75} />
+                    <span className="min-w-0 truncate whitespace-nowrap text-lg font-light tracking-tight text-black/60 dark:text-white/60">{logo.description}</span>
                   </div>
                 </CarouselItem>
               ))}
