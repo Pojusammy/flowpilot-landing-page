@@ -35,10 +35,10 @@ export function TestimonialsSplit() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#F0F4FF] px-6 py-16 text-[#172033] md:py-24">
+    <section className="relative overflow-hidden bg-[#F0F4FF] dark:bg-[#071426] px-6 py-16 text-[#172033] dark:text-[#EAF2FF] md:py-24">
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-9 flex flex-col items-center gap-4 text-center md:mb-10">
-          <Badge variant="outline" className="bg-white/55 backdrop-blur-sm">
+          <Badge variant="outline" className="bg-white/55 dark:bg-white/[0.08] backdrop-blur-sm">
             Testimonials
           </Badge>
           <h2 className="max-w-2xl text-balance text-4xl font-light tracking-tight md:text-5xl">
@@ -47,7 +47,7 @@ export function TestimonialsSplit() {
         </div>
 
         <div
-          className="group relative grid cursor-pointer gap-10 overflow-hidden rounded-[2rem] border border-black/10 bg-white/55 p-8 shadow-sm backdrop-blur-sm md:grid-cols-[1fr_auto] md:items-center md:gap-12 md:p-12"
+          className="group relative grid cursor-pointer gap-10 overflow-hidden rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/55 dark:bg-white/[0.08] p-8 shadow-sm backdrop-blur-sm md:grid-cols-[1fr_auto] md:items-center md:gap-12 md:p-12"
           onClick={nextTestimonial}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
@@ -60,7 +60,7 @@ export function TestimonialsSplit() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="inline-flex items-center gap-2 text-xs font-light uppercase tracking-[0.18em] text-black/45"
+                className="inline-flex items-center gap-2 text-xs font-light uppercase tracking-[0.18em] text-black/45 dark:text-white/45"
               >
                 <span className="h-px w-8 bg-black/25" />
                 {active.company}
@@ -75,7 +75,7 @@ export function TestimonialsSplit() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -34 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="max-w-3xl text-3xl font-light leading-tight tracking-tight text-[#172033] md:text-5xl"
+                  className="max-w-3xl text-3xl font-light leading-tight tracking-tight text-[#172033] dark:text-[#EAF2FF] md:text-5xl"
                 >
                   “{active.quote}”
                 </motion.blockquote>
@@ -92,7 +92,7 @@ export function TestimonialsSplit() {
                 className="flex items-center gap-4"
               >
                 <div className="h-px w-10 bg-black/20" />
-                <p className="text-sm font-medium text-[#172033]">{active.role}</p>
+                <p className="text-sm font-medium text-[#172033] dark:text-[#EAF2FF]">{active.role}</p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -107,7 +107,7 @@ export function TestimonialsSplit() {
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0"
               >
-                <div className="h-full w-full overflow-hidden rounded-[1.5rem] border border-black/10 bg-[#DCE8FF]">
+                <div className="h-full w-full overflow-hidden rounded-[1.5rem] border border-black/10 dark:border-white/10 bg-[#DCE8FF] dark:bg-[#102238]">
                   <img src={active.image} alt={active.role} className="h-full w-full object-cover grayscale" />
                 </div>
               </motion.div>
@@ -119,7 +119,7 @@ export function TestimonialsSplit() {
                 scale: isHovering ? 1 : 0.9,
               }}
               transition={{ duration: 0.2 }}
-              className="absolute -bottom-9 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs font-light text-black/50 md:flex"
+              className="absolute -bottom-9 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs font-light text-black/50 dark:text-white/50 md:flex"
             >
               <span>Next</span>
               <ArrowUpRight className="h-3 w-3" />
@@ -140,13 +140,13 @@ export function TestimonialsSplit() {
               >
                 <span
                   className={`block h-2 w-2 rounded-full transition-all duration-300 ${
-                    index === activeIndex ? "scale-100 bg-[#172033]" : "scale-75 bg-black/25 hover:scale-100"
+                    index === activeIndex ? "scale-100 bg-[#172033] dark:bg-[#8CB4FF]" : "scale-75 bg-black/25 hover:scale-100"
                   }`}
                 />
                 {index === activeIndex ? (
                   <motion.span
                     layoutId="activeTestimonialDot"
-                    className="absolute inset-0 rounded-full border border-black/25"
+                    className="absolute inset-0 rounded-full border border-black/25 dark:border-white/25"
                     transition={{ duration: 0.3 }}
                   />
                 ) : null}

@@ -1,6 +1,6 @@
 "use client"
 
-import type { ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
 import { Header, HeroContent, PulsingCircle, ShaderBackground } from "@/components/ui/Flowpilot-hero-section"
 import { Logos3 } from "@/components/ui/logos3"
@@ -30,10 +30,29 @@ function RevealSection({ children, id }: { children: ReactNode; id?: string }) {
 }
 
 export default function App() {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") {
+      return "light"
+    }
+
+    const storedTheme = window.localStorage.getItem("flowpilot-theme")
+    if (storedTheme === "dark" || storedTheme === "light") {
+      return storedTheme
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  })
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark")
+    document.documentElement.style.colorScheme = theme
+    window.localStorage.setItem("flowpilot-theme", theme)
+  }, [theme])
+
   return (
-    <>
+    <div className={theme === "dark" ? "dark" : undefined}>
       <ShaderBackground>
-        <Header />
+        <Header theme={theme} onToggleTheme={() => setTheme((current) => (current === "dark" ? "light" : "dark"))} />
         <HeroContent />
         <PulsingCircle />
       </ShaderBackground>
@@ -61,6 +80,6 @@ export default function App() {
       <RevealSection id="contact">
         <FinalCta />
       </RevealSection>
-    </>
+    </div>
   )
 }

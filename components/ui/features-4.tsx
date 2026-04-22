@@ -35,36 +35,36 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative overflow-hidden bg-[#F0F4FF] pb-20 pt-6 text-[#172033] md:pb-24 md:pt-8">
+    <section className="relative overflow-hidden bg-[#F0F4FF] dark:bg-[#071426] pb-20 pt-6 text-[#172033] dark:text-[#EAF2FF] md:pb-24 md:pt-8">
       <div className="relative mx-auto max-w-6xl space-y-9 px-6 md:space-y-12">
         <div className="relative z-10 mx-auto max-w-2xl space-y-6 text-center">
-          <div className="inline-flex items-center rounded-full border border-black/10 bg-white/55 px-3 py-1 backdrop-blur-sm">
-            <span className="text-xs font-light text-black/70">Flowpilot features</span>
+          <div className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 bg-white/55 dark:bg-white/[0.08] px-3 py-1 backdrop-blur-sm">
+            <span className="text-xs font-light text-black/70 dark:text-white/70">Flowpilot features</span>
           </div>
-          <h2 className="text-balance text-4xl font-light tracking-tight text-[#172033] md:text-5xl">
+          <h2 className="text-balance text-4xl font-light tracking-tight text-[#172033] dark:text-[#EAF2FF] md:text-5xl">
             Everything your team needs to <span className="instrument italic">move faster</span>
           </h2>
-          <p className="mx-auto max-w-xl text-sm font-light leading-relaxed text-black/55">
+          <p className="mx-auto max-w-xl text-sm font-light leading-relaxed text-black/55 dark:text-white/60">
             From planning to delivery, Flowpilot keeps your team aligned without endless meetings, scattered docs, or
             status update fatigue.
           </p>
         </div>
 
-        <div className="relative mx-auto grid max-w-5xl overflow-hidden rounded-[2rem] border border-black/10 bg-white/55 shadow-sm backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mx-auto grid max-w-5xl overflow-hidden rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/55 dark:bg-white/[0.08] shadow-sm backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => {
             const Icon = feature.icon
 
             return (
               <div
                 key={feature.title}
-                className="group min-h-48 space-y-4 border-b border-black/10 p-8 transition duration-200 hover:bg-white/70 sm:border-r lg:p-10 [&:nth-child(2n)]:sm:border-r-0 [&:nth-child(3n)]:lg:border-r-0 [&:nth-last-child(-n+2)]:sm:border-b-0 [&:nth-last-child(-n+3)]:lg:border-b-0"
+                className="group min-h-48 space-y-4 border-b border-black/10 p-8 transition duration-200 hover:bg-white/70 dark:border-white/10 dark:hover:bg-white/[0.14] sm:border-r lg:p-10 [&:nth-child(2n)]:sm:border-r-0 [&:nth-child(3n)]:lg:border-r-0 [&:nth-last-child(-n+2)]:sm:border-b-0 [&:nth-last-child(-n+3)]:lg:border-b-0"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-[#F0F4FF] text-[#2D69FF] transition duration-200 group-hover:border-[#2D69FF]/25 group-hover:bg-white">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-[#F0F4FF] text-[#2D69FF] transition duration-200 group-hover:border-[#2D69FF]/25 group-hover:bg-white dark:border-white/10 dark:bg-[#071426] dark:hover:bg-white/[0.14]">
                   <Icon className="size-4" strokeWidth={1.75} />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-sm font-medium tracking-tight text-[#172033]">{feature.title}</h3>
-                  <p className="text-sm font-light leading-relaxed text-black/55">{feature.description}</p>
+                  <h3 className="text-sm font-medium tracking-tight text-[#172033] dark:text-[#EAF2FF]">{feature.title}</h3>
+                  <p className="text-sm font-light leading-relaxed text-black/55 dark:text-white/60">{feature.description}</p>
                 </div>
               </div>
             )

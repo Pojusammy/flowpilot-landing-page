@@ -40,7 +40,7 @@ const TabsList = React.forwardRef<
         centerActiveTrigger(event)
       }}
       className={cn(
-        "inline-flex scroll-px-4 items-center justify-center overflow-x-auto scroll-smooth rounded-full bg-white/65 p-1 text-black/60",
+        "inline-flex scroll-px-4 items-center justify-center overflow-x-auto scroll-smooth rounded-full bg-white/65 dark:bg-white/[0.10] p-1 text-black/60 dark:text-white/60",
         className,
       )}
       {...props}
@@ -56,7 +56,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-light outline-offset-2 transition-all hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-black/30 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#172033] data-[state=active]:text-white data-[state=active]:shadow-sm",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 text-xs font-light outline-offset-2 transition-all hover:text-black dark:hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-black/30 dark:focus-visible:outline-white/30 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-[#172033] data-[state=active]:text-white data-[state=active]:shadow-sm dark:data-[state=active]:bg-[#8CB4FF] dark:data-[state=active]:text-[#061225]",
       className,
     )}
     {...props}

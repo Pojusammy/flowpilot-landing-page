@@ -11,13 +11,13 @@ const Switch = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(
-      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border border-black/10 bg-white/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[#172033]",
+      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border border-black/10 bg-white/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-[#172033] dark:border-white/10 dark:bg-white/[0.12] dark:data-[state=checked]:bg-[#8CB4FF]",
       className,
     )}
     {...props}
     ref={ref}
   >
-    <SwitchPrimitives.Thumb className="pointer-events-none block h-5 w-5 rounded-full bg-[#172033] shadow-sm transition-transform data-[state=checked]:translate-x-5 data-[state=checked]:bg-white data-[state=unchecked]:translate-x-0" />
+    <SwitchPrimitives.Thumb className="pointer-events-none block h-5 w-5 rounded-full bg-[#172033] shadow-sm transition-transform data-[state=checked]:translate-x-5 data-[state=checked]:bg-white data-[state=unchecked]:translate-x-0 dark:bg-[#8CB4FF] dark:data-[state=checked]:bg-[#061225]" />
   </SwitchPrimitives.Root>
 ))
 Switch.displayName = SwitchPrimitives.Root.displayName

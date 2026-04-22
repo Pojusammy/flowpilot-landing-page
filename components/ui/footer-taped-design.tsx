@@ -26,18 +26,18 @@ const columns = [
 
 export function Component() {
   return (
-    <footer className="relative mx-auto mt-12 w-full max-w-6xl text-left text-[#172033] md:mt-14">
-      <div className="relative rounded-[2rem] border border-white/50 bg-white/80 px-6 py-10 shadow-sm backdrop-blur-md md:px-10">
+    <footer className="relative mx-auto mt-12 w-full max-w-6xl text-left text-[#172033] dark:text-[#EAF2FF] md:mt-14">
+      <div className="relative rounded-[2rem] border border-white/50 bg-white/80 dark:bg-white/[0.12] px-6 py-10 shadow-sm backdrop-blur-md md:px-10">
         <div className="hidden md:block absolute -top-5 -left-8 h-9 w-20 scale-75">{tape}</div>
         <div className="hidden md:block absolute -top-5 -right-8 h-9 w-20 rotate-90 scale-75">{tape}</div>
 
         <div className="grid gap-10 md:grid-cols-[1.2fr_2fr]">
           <div>
-            <a href="#top" className="flex items-center gap-3 text-2xl font-light tracking-tight text-[#172033]">
-              <img src="/flowpilot-logo.svg" alt="" className="h-8 w-auto" aria-hidden="true" />
+            <a href="#top" className="flex items-center gap-3 text-2xl font-light tracking-tight text-[#172033] dark:text-[#EAF2FF]">
+              <img src="/flowpilot-logo.svg" alt="" className="h-8 w-auto dark:brightness-0 dark:invert" aria-hidden="true" />
               <span>Flowpilot</span>
             </a>
-            <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-black/55">
+            <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-black/55 dark:text-white/60">
               AI-powered project management for teams that want clarity without the chaos.
             </p>
           </div>
@@ -45,7 +45,7 @@ export function Component() {
           <div className="grid gap-8 sm:grid-cols-3">
             {columns.map((column) => (
               <div key={column.title} className="space-y-4">
-                <h4 className="text-xs font-medium uppercase tracking-[0.16em] text-black/45">{column.title}</h4>
+                <h4 className="text-xs font-medium uppercase tracking-[0.16em] text-black/45 dark:text-white/45">{column.title}</h4>
                 <div className="flex flex-col gap-3">
                   {column.links.map((link) => (
                     <a
@@ -59,7 +59,7 @@ export function Component() {
                               ? "#contact"
                               : "#top"
                       }
-                      className="text-sm font-light text-black/55 transition duration-200 hover:text-[#172033]"
+                      className="text-sm font-light text-black/55 transition duration-200 hover:text-[#172033] dark:text-white/60 dark:hover:text-[#EAF2FF]"
                     >
                       {link}
                     </a>
@@ -70,16 +70,16 @@ export function Component() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-black/10 pt-5 text-sm font-light text-black/45 md:flex-row md:items-center md:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-black/10 dark:border-white/10 pt-5 text-sm font-light text-black/45 dark:text-white/45 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Flowpilot. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#pricing" className="transition hover:text-[#172033]">
+            <a href="#pricing" className="transition hover:text-[#172033] dark:hover:text-[#EAF2FF]">
               Pricing
             </a>
-            <a href="#features" className="transition hover:text-[#172033]">
+            <a href="#features" className="transition hover:text-[#172033] dark:hover:text-[#EAF2FF]">
               Features
             </a>
-            <a href="#contact" className="transition hover:text-[#172033]">
+            <a href="#contact" className="transition hover:text-[#172033] dark:hover:text-[#EAF2FF]">
               Contact
             </a>
           </div>

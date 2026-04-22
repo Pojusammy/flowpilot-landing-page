@@ -49,7 +49,7 @@ export function FeatureShowcase({
   const initial = defaultTab ?? tabs[0]?.value ?? "tab-0"
 
   return (
-    <section className={cn("relative overflow-hidden bg-[#F0F4FF] text-[#172033]", className)}>
+    <section className={cn("relative overflow-hidden bg-[#F0F4FF] dark:bg-[#071426] text-[#172033] dark:text-[#EAF2FF]", className)}>
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-12 md:py-24 lg:gap-12">
         <div className="md:col-span-5">
           <Badge variant="outline" className="mb-6 backdrop-blur-sm">
@@ -60,12 +60,12 @@ export function FeatureShowcase({
             How <span className="instrument italic">Flowpilot</span> works
           </h2>
 
-          {description ? <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-black/55">{description}</p> : null}
+          {description ? <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-black/55 dark:text-white/60">{description}</p> : null}
 
           {stats.length > 0 && (
             <div className="mt-6 flex flex-wrap gap-2">
               {stats.map((stat) => (
-                <Badge key={stat} variant="outline" className="bg-white/55 text-black/60">
+                <Badge key={stat} variant="outline" className="bg-white/55 dark:bg-white/[0.08] text-black/60 dark:text-white/60">
                   {stat}
                 </Badge>
               ))}
@@ -83,7 +83,7 @@ export function FeatureShowcase({
             </Accordion>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="rounded-full bg-[#172033] text-xs font-light text-white hover:bg-[#22365f]">
+              <Button asChild size="lg" className="rounded-full bg-[#172033] dark:bg-[#8CB4FF] text-xs font-light text-white dark:text-[#061225] hover:bg-[#22365f] dark:hover:bg-[#A8C6FF]">
                 <a href="#pricing">
                   Start Free
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -93,7 +93,7 @@ export function FeatureShowcase({
                 asChild
                 size="lg"
                 variant="outline"
-                className="rounded-full border-black/15 bg-transparent text-xs font-light text-[#172033] hover:bg-white/65"
+                className="rounded-full border-black/15 dark:border-white/15 bg-transparent text-xs font-light text-[#172033] dark:text-[#EAF2FF] hover:bg-white/65 dark:hover:bg-white/[0.12] dark:bg-white/[0.10]"
               >
                 <a href="#features">Explore features</a>
               </Button>
@@ -103,7 +103,7 @@ export function FeatureShowcase({
 
         <div className="md:col-span-7">
           <Card
-            className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-white/55 p-0 shadow-sm backdrop-blur-sm"
+            className="relative overflow-hidden rounded-[2rem] border border-black/10 dark:border-white/10 bg-white/55 dark:bg-white/[0.08] p-0 shadow-sm backdrop-blur-sm"
             style={{ height: panelMinHeight, minHeight: panelMinHeight }}
           >
             <Tabs defaultValue={initial} className="relative h-full w-full">
@@ -126,7 +126,7 @@ export function FeatureShowcase({
               </div>
 
               <div className="pointer-events-auto absolute inset-x-0 bottom-5 z-10 flex w-full justify-center px-4">
-                <TabsList className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-black/10 bg-white/80 p-1 backdrop-blur-md">
+                <TabsList className="flex max-w-full gap-1 overflow-x-auto rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.12] p-1 backdrop-blur-md">
                   {tabs.map((tab) => (
                     <TabsTrigger key={tab.value} value={tab.value}>
                       {tab.label}

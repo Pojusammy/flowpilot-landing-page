@@ -96,25 +96,25 @@ export function Pricing2() {
   const [isYearly, setIsYearly] = useState(false)
 
   return (
-    <section className="relative overflow-hidden bg-[#F0F4FF] px-6 py-16 text-[#172033] md:py-24">
+    <section className="relative overflow-hidden bg-[#F0F4FF] dark:bg-[#071426] px-6 py-16 text-[#172033] dark:text-[#EAF2FF] md:py-24">
       <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 text-center">
-          <Badge variant="outline" className="bg-white/55 backdrop-blur-sm">
+          <Badge variant="outline" className="bg-white/55 dark:bg-white/[0.08] backdrop-blur-sm">
             Pricing
           </Badge>
           <h2 className="text-balance text-4xl font-light tracking-tight md:text-5xl">
             Simple pricing for teams of <span className="instrument italic">every size</span>
           </h2>
-          <p className="max-w-xl text-sm font-light leading-relaxed text-black/55">
+          <p className="max-w-xl text-sm font-light leading-relaxed text-black/55 dark:text-white/60">
             Start free, upgrade when you need more control and collaboration.
           </p>
 
-          <div className="mt-2 flex items-center gap-3 rounded-full border border-black/10 bg-white/55 px-4 py-2 text-xs font-light text-black/60 backdrop-blur-sm">
-            <Label htmlFor="billing-cycle" className={cn("text-xs font-light", !isYearly && "text-[#172033]")}>
+          <div className="mt-2 flex items-center gap-3 rounded-full border border-black/10 dark:border-white/10 bg-white/55 dark:bg-white/[0.08] px-4 py-2 text-xs font-light text-black/60 dark:text-white/60 backdrop-blur-sm">
+            <Label htmlFor="billing-cycle" className={cn("text-xs font-light", !isYearly && "text-[#172033] dark:text-[#EAF2FF]")}>
               Monthly
             </Label>
             <Switch id="billing-cycle" checked={isYearly} onCheckedChange={setIsYearly} />
-            <Label htmlFor="billing-cycle" className={cn("text-xs font-light", isYearly && "text-[#172033]")}>
+            <Label htmlFor="billing-cycle" className={cn("text-xs font-light", isYearly && "text-[#172033] dark:text-[#EAF2FF]")}>
               Yearly
             </Label>
           </div>
@@ -126,25 +126,25 @@ export function Pricing2() {
             const pricingCard = (
               <Card
                 className={cn(
-                  "flex min-h-[36rem] flex-col overflow-hidden rounded-[2rem] border-black/10 bg-white/55 text-left shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:bg-white/70",
-                  isFeatured && "border-transparent bg-white/75 ring-1 ring-[#2D69FF]/10",
+                  "flex min-h-[36rem] flex-col overflow-hidden rounded-[2rem] border-black/10 bg-white/55 text-left shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:bg-white/70 dark:border-white/10 dark:bg-white/[0.08] dark:hover:bg-white/[0.14]",
+                  isFeatured && "border-transparent bg-white/75 dark:bg-white/[0.12] ring-1 ring-[#2D69FF]/10",
                 )}
               >
                 <CardHeader className="space-y-5 p-8">
                   <div className="flex items-center justify-between gap-4">
-                    <CardTitle className="text-2xl font-light tracking-tight text-[#172033]">{plan.name}</CardTitle>
+                    <CardTitle className="text-2xl font-light tracking-tight text-[#172033] dark:text-[#EAF2FF]">{plan.name}</CardTitle>
                     {isFeatured ? (
-                      <Badge variant="outline" className="bg-[#172033] text-white">
+                      <Badge variant="outline" className="bg-[#172033] text-white dark:bg-[#8CB4FF] dark:text-[#061225]">
                         Popular
                       </Badge>
                     ) : null}
                   </div>
-                  <p className="min-h-10 text-sm font-light leading-relaxed text-black/55">{plan.description}</p>
+                  <p className="min-h-10 text-sm font-light leading-relaxed text-black/55 dark:text-white/60">{plan.description}</p>
                   <div>
-                    <span className="text-5xl font-light tracking-tight text-[#172033]">
+                    <span className="text-5xl font-light tracking-tight text-[#172033] dark:text-[#EAF2FF]">
                       {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                     </span>
-                    <span className="ml-2 text-sm font-light text-black/50">{plan.priceSuffix}</span>
+                    <span className="ml-2 text-sm font-light text-black/50 dark:text-white/50">{plan.priceSuffix}</span>
                   </div>
                 </CardHeader>
 
@@ -152,7 +152,7 @@ export function Pricing2() {
                   <Separator className="mb-6" />
                   <ul className="space-y-4">
                     {plan.features.map((feature) => (
-                      <li key={feature.text} className="flex gap-3 text-sm font-light leading-relaxed text-black/65">
+                      <li key={feature.text} className="flex gap-3 text-sm font-light leading-relaxed text-black/65 dark:text-white/65">
                         <CircleCheck className="mt-0.5 size-4 shrink-0 text-[#2D69FF]" strokeWidth={1.75} />
                         <span>{feature.text}</span>
                       </li>
@@ -166,8 +166,8 @@ export function Pricing2() {
                     className={cn(
                       "w-full rounded-full text-xs font-light",
                       isFeatured
-                        ? "bg-[#172033] text-white hover:bg-[#22365f]"
-                        : "border border-black/15 bg-transparent text-[#172033] hover:bg-white/80",
+                        ? "bg-[#172033] dark:bg-[#8CB4FF] text-white dark:text-[#061225] hover:bg-[#22365f] dark:hover:bg-[#A8C6FF]"
+                        : "border border-black/15 bg-transparent text-[#172033] hover:bg-white/80 dark:border-white/15 dark:bg-transparent dark:text-[#EAF2FF] dark:hover:bg-white/[0.14]",
                     )}
                     variant={isFeatured ? "default" : "outline"}
                     size="lg"
@@ -188,7 +188,7 @@ export function Pricing2() {
                 borderWidth={2}
                 duration={7}
                 color={["#2D69FF", "#F0F4FF", "#172033", "#8CB4FF"]}
-                className="rounded-[2rem] bg-white/40 shadow-sm"
+                className="rounded-[2rem] bg-white/40 dark:bg-white/[0.10] shadow-sm"
               >
                 {pricingCard}
               </ShineBorder>
